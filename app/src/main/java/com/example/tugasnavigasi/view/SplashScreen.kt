@@ -1,5 +1,6 @@
 package com.example.tugasnavigasi.view
 
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -9,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -16,7 +18,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -105,3 +110,63 @@ fun SplashScreen(
     }
 }
 
+@Composable
+private fun PlanetBadge(
+    title: String,
+    subtitle: String,
+    year: String,
+    primary: Color,
+    textColor: Color
+) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+
+        // Teks atas (CARD-LST) gaya melengkung sederhana (pakai huruf besar & spasi)
+        Text(
+            text = title,
+            fontSize = 24.sp,
+            color = primary,
+            fontWeight = FontWeight.Black,
+            letterSpacing = 2.sp
+        )
+
+        Spacer(Modifier.height(8.dp))
+
+        // Planet pakai Canvas
+        Canvas(modifier = Modifier.size(120.dp)) {
+            val center = Offset(size.width / 2, size.height / 2)
+            val radius = size.minDimension * 0.22f
+
+            // planet (lingkaran)
+            drawCircle(color = Color(0xFFFF6FAF), radius = radius, center = center)
+
+            // cincin
+            drawArc(
+                color = primary,
+                startAngle = 200f,
+                sweepAngle = 140f,
+                useCenter = false,
+                style = Stroke(width = 16f, cap = StrokeCap.Round)
+            )
+
+            // titik bintang kecil
+            drawCircle(color = Color(0xFFFF6FAF), radius = 5f, center = center + Offset(-48f, -36f))
+            drawCircle(color = Color(0xFFFF6FAF), radius = 4f, center = center + Offset(52f, -28f))
+        }
+
+        // Subtitle & pita tahun
+        Text(
+            text = subtitle,
+            fontSize = 12.sp,
+            color = textColor.copy(alpha = 0.7f),
+            letterSpacing = 2.sp
+        )
+        Spacer(Modifier.height(6.dp))
+        Box(
+            modifier = Modifier
+                .background(primary, RoundedCornerShape(10.dp))
+                .padding(horizontal = 12.dp, vertical = 4.dp)
+        ) {
+            Text(text = year, color = Color.White, fontSize = 12.sp)
+        }
+    }
+}
