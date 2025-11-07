@@ -2,6 +2,7 @@ package com.example.tugasnavigasi.view
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -88,6 +89,8 @@ fun TampilData(
                 ) {
                     Text(text = "Beranda")
                 }
+
+                Spacer(Modifier.height(12.dp))
             }
         }
     }
