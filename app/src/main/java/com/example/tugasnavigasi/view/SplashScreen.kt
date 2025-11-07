@@ -73,6 +73,13 @@ fun SplashScreen(
             )
 
             Spacer(Modifier.height(4.dp))
+
+            Text(
+                text = user.nim,
+                fontSize = 14.sp,
+                color = textDark.copy(alpha = 0.6f),
+                textAlign = TextAlign.Center
+            )
         }
     }
 }
