@@ -91,6 +91,15 @@ fun TampilData(
                 }
 
                 Spacer(Modifier.height(12.dp))
+
+                Button(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(48.dp),
+                    onClick = onGoFormulir
+                ) {
+                    Text(text = stringResource(id = R.string.formulir_pendaftaran))
+                }
             }
         }
     }
