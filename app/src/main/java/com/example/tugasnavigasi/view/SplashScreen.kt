@@ -50,6 +50,14 @@ fun SplashScreen(
                 letterSpacing = 0.5.sp,
                 modifier = Modifier.padding(bottom = 28.dp)
             )
+            PlanetBadge(
+                title = "CARD-LST",
+                subtitle = "MOBILE APP",
+                year = "2025",
+                primary = primary,
+                textColor = textDark
+            )
         }
     }
 }
+
