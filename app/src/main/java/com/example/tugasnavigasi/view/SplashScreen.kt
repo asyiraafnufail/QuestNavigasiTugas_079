@@ -71,6 +71,8 @@ fun SplashScreen(
                 fontWeight = FontWeight.Medium,
                 textAlign = TextAlign.Center
             )
+
+            Spacer(Modifier.height(4.dp))
         }
     }
 }
