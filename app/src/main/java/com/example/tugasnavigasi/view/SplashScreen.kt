@@ -80,6 +80,8 @@ fun SplashScreen(
                 color = textDark.copy(alpha = 0.6f),
                 textAlign = TextAlign.Center
             )
+
+            Spacer(Modifier.height(36.dp))
         }
     }
 }
