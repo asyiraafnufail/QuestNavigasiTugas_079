@@ -72,6 +72,13 @@ fun TampilData(
                     HorizontalDivider(thickness = 1.dp, color = Color.Cyan)
                 }
             }
+
+            Column(
+                modifier = Modifier
+                    .padding(dimensionResource(id = R.dimen.padding_medium))
+            ){
+
+            }
         }
     }
 }
