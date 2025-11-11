@@ -1,4 +1,4 @@
-package com.example.navigasi
+package com.example.tugasnavigasi
 
 import android.annotation.SuppressLint
 import android.os.Bundle
